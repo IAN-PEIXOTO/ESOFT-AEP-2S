@@ -34,7 +34,11 @@ O sistema foi escrito de forma simples, utilizando estruturas básicas da lingua
 
 6. Gerar um resumo com a quantidade de ações planejadas, realizadas e canceladas, o total de participantes efetivos nas ações realizadas e o percentual em relação ao total previsto nessas ações.
 
-7. Validar entradas importantes, como códigos repetidos ou não positivos, quantidades negativas, campos obrigatórios vazios, datas fora do formato esperado e opções inválidas no menu.
+7. Validar entradas importantes, como códigos repetidos ou não positivos, quantidades negativas, campos obrigatórios vazios, datas que não existem no calendário e opções inválidas no menu.
+
+# Arquivos do projeto
+
+O código principal está em `src/pse.c`. A pasta `docs/` reúne os fluxogramas, o diagrama de casos de uso, as capturas do programa e o registro de testes.
 
 # Requisitos técnicos mínimos
 
@@ -61,4 +65,4 @@ O sistema utilizará somente dados fictícios e informações coletivas sobre as
 Não deverão ser cadastrados nomes, diagnósticos, prontuários, condições clínicas ou qualquer outro dado sensível individual de estudantes
 O programa não realizará diagnóstico, triagem médica, prescrição ou recomendação de tratamento
 Banco de dados, interface gráfica, aplicação web e bibliotecas avançadas não serão exigidos
-Nesta versão, a validação da data confere o formato DD/MM/AAAA e limites simples para dia e mês; não verifica a quantidade de dias de cada mês nem anos bissextos
+A data é validada no formato DD/MM/AAAA, considerando os dias de cada mês e anos bissextos

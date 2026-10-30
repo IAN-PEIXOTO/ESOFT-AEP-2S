@@ -76,6 +76,8 @@ int dataValida(char data[]) {
     int mes;
     int ano;
     int i;
+    int diasNoMes;
+    int anoBissexto;
 
     if (strlen(data) != 10 || data[2] != '/' || data[5] != '/') {
         return 0;
@@ -92,7 +94,20 @@ int dataValida(char data[]) {
     ano = (data[6] - '0') * 1000 + (data[7] - '0') * 100 +
           (data[8] - '0') * 10 + (data[9] - '0');
 
-    return dia >= 1 && dia <= 31 && mes >= 1 && mes <= 12 && ano >= 1;
+    if (ano < 1 || mes < 1 || mes > 12) {
+        return 0;
+    }
+
+    if (mes == 2) {
+        anoBissexto = ano % 400 == 0 || (ano % 4 == 0 && ano % 100 != 0);
+        diasNoMes = anoBissexto ? 29 : 28;
+    } else if (mes == 4 || mes == 6 || mes == 9 || mes == 11) {
+        diasNoMes = 30;
+    } else {
+        diasNoMes = 31;
+    }
+
+    return dia >= 1 && dia <= diasNoMes;
 }
 
 int buscarIndicePorCodigo(Acao acoes[], int total, int codigo) {
